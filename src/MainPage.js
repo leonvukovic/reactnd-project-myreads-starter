@@ -22,6 +22,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <MyBook
                             book={book}
+                            moveBook={this.props.moveBook}
                           />
                         </li>
                       ))
@@ -40,6 +41,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <MyBook
                             book={book}
+                            moveBook={this.props.moveBook}
                           />
                         </li>
                       ))
@@ -58,6 +60,7 @@ class MainPage extends Component {
                         <li key={book.id}>
                           <MyBook
                             book={book}
+                            moveBook={this.props.moveBook}
                           />
                         </li>
                       ))

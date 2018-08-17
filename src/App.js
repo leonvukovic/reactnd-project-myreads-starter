@@ -17,6 +17,14 @@ class BooksApp extends React.Component {
     })
   }
 
+  moveBook = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+
+    BooksAPI.getAll().then((myBooks) => {
+      this.setState({ myBooks })
+    })
+  }
+
   render() {
     console.log(this.state.myBooks);
     return (
@@ -24,6 +32,7 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={() => (
           <MainPage
             myBooks={this.state.myBooks}
+            moveBook={this.moveBook}
           />
         )}/>
       <Route path="/search" render={({history}) => (
