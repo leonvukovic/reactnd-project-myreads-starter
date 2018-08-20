@@ -22,7 +22,7 @@ class SearchPage extends Component {
         if (searchBooks.error) {
           this.setState({ searchBooks: [] })
         } else {
-          this.setState({ searchBooks: searchBooks })          
+          this.setState({ searchBooks: searchBooks })
         }
       })
     } else {
@@ -57,13 +57,27 @@ class SearchPage extends Component {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-              {this.state.searchBooks.map(searchBooks => (
-                <li key={searchBooks.id}>
-                  <MyBook
-                    book={searchBooks}
-                  />
-                </li>
-              ))}
+              {
+                this.state.searchBooks.map(searchBook => {
+                  let shelf = "none";
+
+                  this.props.myBooks.map(myBook => (
+                    myBook.is === searchBook.id ?
+                    shelf = myBook.shelf :
+                    ''
+                  ));
+
+                  return (
+                    <li key={searchBook.id}>
+                      <MyBook
+                        book={searchBook}
+                        moveBook={this.props.moveBook}
+                        currentShelf={shelf}
+                        />
+                    </li>
+                  )
+                })
+              }
             </ol>
           </div>
         </div>

@@ -4,7 +4,7 @@ class MyBook extends Component {
 
   render () {
     let displayThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
-    
+
     return (
       <div className="book">
         <div className="book-top">
@@ -14,7 +14,7 @@ class MyBook extends Component {
               onChange={(event) => this.props.moveBook(
                 this.props.book, event.target.value
               )}
-              value={this.props.book.shelf}
+              value={this.props.currentShelf}
             >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
